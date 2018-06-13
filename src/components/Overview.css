@@ -1,3 +1,24 @@
+.dexTest {
+    background: url(./images/testImg.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    color: white;
+    padding-bottom: 175px;
+    padding-top: 175px;
+}
+
+.refTest{
+    background: url(./images/testImg.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    color: white;
+    padding-bottom: 175px;
+    padding-top: 175px;  
+}
+
+
 @media only screen and (max-width: 576px){
     .overview {
         margin-top: 20px;
