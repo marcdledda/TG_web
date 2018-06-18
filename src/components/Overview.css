@@ -1,5 +1,5 @@
 .dexTest {
-    background: url(./images/testImg.png);
+    background: url(./images/dexTest.png);
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
@@ -9,7 +9,7 @@
 }
 
 .refTest{
-    background: url(./images/testImg.png);
+    background: url(./images/refTest.png);
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
