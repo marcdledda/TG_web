@@ -1,11 +1,14 @@
 import React, { Component } from 'react';
+import Search from './Search';
 
 class Scores extends Component {
     constructor(props){
         super(props);
         this.state = {
             data: [],
-            dataLoad: false
+            dataLoad: false,
+            searchState: false,
+            searchInput: ""
         }
     }
 
@@ -25,17 +28,46 @@ class Scores extends Component {
         })
     }
 
+    searching = (input) => {
+        if (input == ""){
+            this.setState({
+                searchState: false,
+                searchInput: ""
+            })
+        } else {
+            this.setState({
+                searchState: true,
+                searchInput: input
+            })
+        }
+    }
+
     render(){
-        console.log("DA STATE", this.state.data);
+        console.log("DA STATE", this.state);
         const dataForm = this.state.data.map((item, index) => {
-            return (
-                <tr key={index}>
-                    <td>{item.Name}</td>
-                    <td>{item.DexTest}/15</td>
-                    <td>{item.RefTest}/15</td>
-                    <td>{item.CompTest}</td>
-                </tr>
-            )
+            if (this.state.searchState){
+                let lowerName = item.Name.toLowerCase();
+                let lowerSearch = this.state.searchInput.toLowerCase();
+                if(lowerName.includes(lowerSearch)){
+                    return (
+                        <tr key={index}>
+                            <td>{item.Name}</td>
+                            <td>{item.DexTest}/15</td>
+                            <td>{item.RefTest}/15</td>
+                            <td>{item.CompTest}</td>
+                        </tr>
+                    )
+                }
+            } else {
+                return (
+                    <tr key={index}>
+                        <td>{item.Name}</td>
+                        <td>{item.DexTest}/15</td>
+                        <td>{item.RefTest}/15</td>
+                        <td>{item.CompTest}</td>
+                    </tr>
+                )
+            }
         })
 
 
@@ -48,9 +80,10 @@ class Scores extends Component {
                                     <div className="col-7 text-right">                                  
                                         <h2 className="mb-1">Scores</h2>
                                     </div>
-                                    <div className="col align-self-center d-flex justify-content-end">
+                                    {/* <div className="col align-self-center d-flex justify-content-end">
                                         <input type="text" placeholder="Search by Subject Name" className="mb-1"/>
-                                    </div>
+                                    </div> */}
+                                    <Search search={this.searching}/>
                                 </div>
                                 <table className="table table-striped text-center">
                                     <thead>
