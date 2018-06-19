@@ -29,7 +29,7 @@ class Scores extends Component {
     }
 
     searching = (input) => {
-        if (input == ""){
+        if (input === ""){
             this.setState({
                 searchState: false,
                 searchInput: ""
@@ -73,11 +73,11 @@ class Scores extends Component {
         if (this.state.dataLoad){
             return(
                 <div className="container">
-                    <div className="row justify-content-center">
+                    <div className="row my-5 justify-content-center">
                         <div className="col-lg-10">
                                 <div className="col justify-content-center">
                                     <div className="col text-lg-center">                                  
-                                        <h2 className="mb-1">Scores</h2>
+                                        <h2 className="mb-1">Subjects' Performance</h2>
                                     </div>
                                     {/* <div className="col align-self-center d-flex justify-content-end">
                                         <input type="text" placeholder="Search by Subject Name" className="mb-1"/>
