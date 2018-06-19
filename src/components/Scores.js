@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Search from './Search';
+import {ScoreUrl} from './ServerKey';
 
 class Scores extends Component {
     constructor(props){
@@ -18,7 +19,7 @@ class Scores extends Component {
 
     getData = () => {
         let component = this;
-        fetch(`http://localhost/testinggrounds/GetScore.php`)
+        fetch(ScoreUrl)
         .then(resp => resp.json())
         .then(function(myJson){
             component.setState({
