@@ -43,7 +43,6 @@ class Scores extends Component {
     }
 
     render(){
-        console.log("DA STATE", this.state);
         const dataForm = this.state.data.map((item, index) => {
             if (this.state.searchState){
                 let lowerName = item.Name.toLowerCase();
@@ -76,8 +75,8 @@ class Scores extends Component {
                 <div className="container">
                     <div className="row justify-content-center">
                         <div className="col-lg-10">
-                                <div className="row justify-content-center">
-                                    <div className="col-7 text-right">                                  
+                                <div className="col justify-content-center">
+                                    <div className="col text-lg-center">                                  
                                         <h2 className="mb-1">Scores</h2>
                                     </div>
                                     {/* <div className="col align-self-center d-flex justify-content-end">

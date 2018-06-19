@@ -8,7 +8,7 @@ class Search extends Component {
 
     render(){
         return(
-            <div className="col align-self-center d-flex justify-content-end">
+            <div className="col p-0 align-self-center d-flex justify-content-start">
                 <input type="text" id="search" placeholder="Search by Subject Name" className="mb-1" onKeyUp={this.search}/>
             </div>
         );
