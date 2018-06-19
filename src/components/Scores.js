@@ -15,21 +15,11 @@ class Scores extends Component {
 
     getData = () => {
         let component = this;
-        fetch(`http://localhost/unitytest/ScoreData.php?`)
+        fetch(`http://localhost/testinggrounds/GetScore.php`)
         .then(resp => resp.json())
         .then(function(myJson){
-            console.log(myJson);
-            let finishedArray = [];
-            for (let i = 0; i < myJson.length; i++){
-                let scoreINT = parseInt(myJson[i][2]);
-                let object = {
-                    Name: myJson[i][1],
-                    Score: scoreINT
-                }
-                finishedArray.push(object);
-            }
             component.setState({
-                data: finishedArray,
+                data: myJson,
                 dataLoad: true
             })
         })
@@ -38,25 +28,52 @@ class Scores extends Component {
     render(){
         console.log("DA STATE", this.state.data);
         const dataForm = this.state.data.map((item, index) => {
-            return(
-                <div key={index}>
-                    <h2>Subject's Scores:</h2>
-                    <h3>{item.Name}: {item.Score}</h3>
-                </div>
+            return (
+                <tr key={index}>
+                    <td>{item.Name}</td>
+                    <td>{item.DexTest}/15</td>
+                    <td>{item.RefTest}/15</td>
+                    <td>{item.CompTest}</td>
+                </tr>
             )
         })
-        if (!this.state.dataLoad){
+
+
+        if (this.state.dataLoad){
             return(
-                <div>
-                    Data is Loading
+                <div className="container">
+                    <div className="row justify-content-center">
+                        <div className="col-lg-10">
+                                <div className="row justify-content-center">
+                                    <div className="col-7 text-right">                                  
+                                        <h2 className="mb-1">Scores</h2>
+                                    </div>
+                                    <div className="col align-self-center d-flex justify-content-end">
+                                        <input type="text" placeholder="Search by Subject Name" className="mb-1"/>
+                                    </div>
+                                </div>
+                                <table className="table table-striped text-center">
+                                    <thead>
+                                        <tr>
+                                        <th scope="col">Subject Name</th>
+                                        <th scope="col">Dexterity Test</th>
+                                        <th scope="col">Reflex Test</th>
+                                        <th scope="col">Composite Grade</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        {dataForm}
+                                    </tbody>
+                                </table>
+                        </div>
+                    </div>
                 </div>
             )
-        } else if (this.state.dataLoad){
+        } else {
             return(
-                <div>
-                    LOAD
-                    <div>
-                        {dataForm}
+                <div className="container">
+                    <div className="col text-center">
+                        <h2>Scores data was not found.</h2>
                     </div>
                 </div>
             )
