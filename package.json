@@ -1,8 +1,8 @@
 {
-  "name": "portfolio",
+  "name": "tgweb",
   "version": "0.1.0",
   "private": true,
-  "homepage": "http://marcdledda.github.io/portfolio",
+  "homepage": "http://marcdledda.github.io/TG_web",
   "dependencies": {
     "bootstrap": "^4.0.0",
     "firebase": "^4.12.1",
