@@ -1,0 +1,21 @@
+.download {
+    background-color: rgb(202, 202, 202);
+    border: 2px solid #323232;
+}
+
+.download:hover{
+    background-color: #323232;
+    color: rgb(202, 202, 202);
+}
+
+@media only screen and (max-width: 576px){
+    .testingGround {
+        margin-top: 20px;
+        margin-bottom: 20px;
+    }
+
+    .theVideo{
+        margin-top: 20px;
+        margin-bottom: 20px;
+    }
+}
